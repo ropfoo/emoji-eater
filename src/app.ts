@@ -7,6 +7,7 @@ async function init() {
   const groupsJSON = JSON.stringify(groups);
   await storeJSON(groupsJSON);
   console.log("aaaaand its done 🙌");
+  console.log("(you can now Ctrl + C out of this)");
   return;
 }
 

@@ -2,6 +2,7 @@ import puppeteer from "puppeteer";
 import * as cheerio from "cheerio";
 import { MAIN_URL } from "./constants";
 import { Emoji } from "./types";
+import { formatId } from "./helper";
 
 export async function getEmojisByCategory(slug: string): Promise<Emoji[]> {
   const url = `${MAIN_URL}${slug}`;
@@ -20,7 +21,7 @@ export async function getEmojisByCategory(slug: string): Promise<Emoji[]> {
     const name = $(elm.lastChild ?? "")
       .text()
       .trimStart();
-    const id = name.toLowerCase().replace(/ /g, "-");
+    const id = formatId(name);
 
     emojis.push({ name, character, id });
   });
