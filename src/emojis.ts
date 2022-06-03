@@ -17,9 +17,12 @@ export async function getEmojisByCategory(slug: string): Promise<Emoji[]> {
 
   $(".emoji-list > li > a").each((_, elm) => {
     const character = $(elm.firstChild ?? "").text();
-    const name = $(elm.lastChild ?? "").text().trimStart();
+    const name = $(elm.lastChild ?? "")
+      .text()
+      .trimStart();
+    const id = name.toLowerCase().replace(/ /g, "-");
 
-    emojis.push({ name, character });
+    emojis.push({ name, character, id });
   });
 
   return emojis;

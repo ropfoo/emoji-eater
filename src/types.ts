@@ -11,6 +11,7 @@ export type Group = {
 };
 
 export type Emoji = {
+  id: string;
   name: string;
   character: string;
 };
