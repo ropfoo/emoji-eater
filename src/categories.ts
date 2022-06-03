@@ -20,7 +20,7 @@ export async function getEmojiGroups(): Promise<Group[]> {
   $(".content > ul > li > a").each((i, elm) => {
     const slug = elm.attribs.href;
     const emoji = $(elm.firstChild ?? "").text();
-    const name = $(elm.lastChild ?? "").text();
+    const name = $(elm.lastChild ?? "").text().trimStart();
 
     categories.push({ slug, name, emoji });
   });

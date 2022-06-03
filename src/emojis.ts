@@ -17,7 +17,7 @@ export async function getEmojisByCategory(slug: string): Promise<Emoji[]> {
 
   $(".emoji-list > li > a").each((_, elm) => {
     const character = $(elm.firstChild ?? "").text();
-    const name = $(elm.lastChild ?? "").text();
+    const name = $(elm.lastChild ?? "").text().trimStart();
 
     emojis.push({ name, character });
   });
