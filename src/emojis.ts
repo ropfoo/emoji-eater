@@ -1,7 +1,7 @@
-import puppeteer from 'puppeteer';
-import * as cheerio from 'cheerio';
-import { MAIN_URL } from './constants';
-import { Emoji } from './types';
+import puppeteer from "puppeteer";
+import * as cheerio from "cheerio";
+import { MAIN_URL } from "./constants";
+import { Emoji } from "./types";
 
 export async function getEmojisByCategory(slug: string): Promise<Emoji[]> {
   const url = `${MAIN_URL}${slug}`;
@@ -15,14 +15,12 @@ export async function getEmojisByCategory(slug: string): Promise<Emoji[]> {
 
   const emojis: Emoji[] = [];
 
-  $('.emoji-list > li > a').each((_, elm) => {
-    const character = $(elm.firstChild ?? '').text();
-    const name = $(elm.lastChild ?? '').text();
+  $(".emoji-list > li > a").each((_, elm) => {
+    const character = $(elm.firstChild ?? "").text();
+    const name = $(elm.lastChild ?? "").text();
 
     emojis.push({ name, character });
   });
-
-  console.log(emojis);
 
   return emojis;
 }

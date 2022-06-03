@@ -7,7 +7,7 @@ export type Category = {
 export type Group = {
   emoji: string;
   name: string;
-  emojis: Emoji[];
+  data: Emoji[];
 };
 
 export type Emoji = {

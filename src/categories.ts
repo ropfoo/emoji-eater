@@ -1,8 +1,8 @@
-import puppeteer from 'puppeteer';
-import * as cheerio from 'cheerio';
-import { MAIN_URL } from './constants';
-import { Category, Group } from './types';
-import { getEmojisByCategory } from './emojis';
+import puppeteer from "puppeteer";
+import * as cheerio from "cheerio";
+import { MAIN_URL } from "./constants";
+import { Category, Group } from "./types";
+import { getEmojisByCategory } from "./emojis";
 
 export async function getEmojiGroups(): Promise<Group[]> {
   const url = `${MAIN_URL}/categories`;
@@ -17,10 +17,10 @@ export async function getEmojiGroups(): Promise<Group[]> {
   // get existing categories
   const categories: Category[] = [];
 
-  $('.content > ul > li > a').each((i, elm) => {
+  $(".content > ul > li > a").each((i, elm) => {
     const slug = elm.attribs.href;
-    const emoji = $(elm.firstChild ?? '').text();
-    const name = $(elm.lastChild ?? '').text();
+    const emoji = $(elm.firstChild ?? "").text();
+    const name = $(elm.lastChild ?? "").text();
 
     categories.push({ slug, name, emoji });
   });
@@ -29,9 +29,9 @@ export async function getEmojiGroups(): Promise<Group[]> {
 
   await Promise.all(
     categories.map(async ({ name, emoji, slug }) => {
-      const emojis = await getEmojisByCategory(slug);
+      const data = await getEmojisByCategory(slug);
 
-      emojiGroups.push({ name, emoji, emojis });
+      emojiGroups.push({ name, emoji, data });
     })
   );
 
