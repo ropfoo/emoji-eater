@@ -1,10 +1,12 @@
 {
   "name": "emoji-eater",
   "version": "1.0.0",
-  "description": "finding the current emoji data",
-  "main": "./build/app.js",
+  "description": "Gets current emoji data from emojipedia as JSON",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+
   "scripts": {
-    "start": "tsc && node ./build/app.js",
+    "start": "tsc && node ./build/index.js",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
