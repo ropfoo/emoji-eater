@@ -1,7 +1,9 @@
 {
   "name": "emoji-eater",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Gets current emoji data from emojipedia as JSON",
+  "files": ["build/**/*"],
+  "bin":  "./build/index.js",
   "main": "build/index.js",
   "types": "build/index.d.ts",
 

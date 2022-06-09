@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { getEmojiGroups } from "./categories";
 import { storeJSON } from "./storeJSON";
 
