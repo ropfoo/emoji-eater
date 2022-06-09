@@ -6,4 +6,3 @@ export function formatId(idString: string) {
     .replace(/&/g, "and");
   // .replace(/./g, "")
 }
-// 4XWgV?mUi/(5hh/
