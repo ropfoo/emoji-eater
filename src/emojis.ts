@@ -23,7 +23,10 @@ export async function getEmojisByCategory(slug: string): Promise<Emoji[]> {
       .trimStart();
     const id = formatId(name);
 
-    emojis.push({ name, character, id });
+    // exclude refugee-nation-flag cause of way to long character
+    if (id !== "refugee-nation-flag") {
+      emojis.push({ name, character, id });
+    }
   });
 
   return emojis;
